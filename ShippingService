@@ -1,0 +1,16 @@
+package Ex08;
+public class ShippingService {
+    public String generateWaybill(Customer cust) {
+        if (cust == null) {
+            throw new IllegalArgumentException("Thiếu thông tin địa chỉ");
+        }
+        if (cust.getAddress() == null) {
+            throw new IllegalArgumentException("Thiếu thông tin địa chỉ");
+        }
+        String city = cust.getAddress().getCity();
+        if (city == null || city.trim().isEmpty()) {
+            throw new IllegalArgumentException("Thiếu thông tin địa chỉ");
+        }
+        return "Ship to: " + city;
+    }
+}
