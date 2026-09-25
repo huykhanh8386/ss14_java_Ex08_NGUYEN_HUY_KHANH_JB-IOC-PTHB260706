@@ -1,0 +1,36 @@
+package Ex08;
+public class Main {
+    public static void main(String[] args) {
+        ShippingService shippingService = new ShippingService();
+        Customer customer1 = new Customer("Nguyễn Văn A", new Address("Hà Nội"));
+        try {
+            System.out.println(shippingService.generateWaybill(customer1));
+        } catch (IllegalArgumentException e) {
+            System.out.println("LỖI: " + e.getMessage());
+        }
+        Customer customer2 = null;
+        try {
+            System.out.println(shippingService.generateWaybill(customer2));
+        } catch (IllegalArgumentException e) {
+            System.out.println("LỖI: " + e.getMessage());
+        }
+        Customer customer3 = new Customer("Trần Văn B", null);
+        try {
+            System.out.println(shippingService.generateWaybill(customer3));
+        } catch (IllegalArgumentException e) {
+            System.out.println("LỖI: " + e.getMessage());
+        }
+        Customer customer4 = new Customer("Lê Văn C", new Address(""));
+        try {
+            System.out.println(shippingService.generateWaybill(customer4));
+        } catch (IllegalArgumentException e) {
+            System.out.println("LỖI: " + e.getMessage());
+        }
+        Customer customer5 = new Customer("Phạm Văn D", new Address("     "));
+        try {
+            System.out.println(shippingService.generateWaybill(customer5));
+        } catch (IllegalArgumentException e) {
+            System.out.println("LỖI: " + e.getMessage());
+        }
+    }
+}
